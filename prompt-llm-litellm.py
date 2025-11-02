@@ -28,18 +28,13 @@ def generate_response(messages: List[Dict]) -> str:
     return response.choices[0].message.content
 
 
-# Beispielkonversation für das Modell - "role" beschreibt die Art der Nachricht:
+# Beispielkonversation für das Modell:
 # - Die "system"-Nachricht beschreibt das Verhalten oder die Rolle des Modells.
 # - Die "user"-Nachricht enthält die eigentliche Frage oder Aufgabe.
 messages = [
     {"role": "system", "content": "You are an expert software engineer that prefers functional programming."},
     {"role": "user", "content": "Write a function to swap the keys and values in a dictionary."}
 ]
-
-""" messages = [
-    {"role": "system", "content": "Du bist ein Verkäufter von Autos"},
-    {"role": "user", "content": "Was sagst Du einem Ferrari-Fan, wenn Du ihm ein EV verkaufen willst?"}
-] """
 
 # Der eigentliche Funktionsaufruf – sendet die Nachrichten an das Modell
 # und speichert die Antwort in der Variable 'response'.
