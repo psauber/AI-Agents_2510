@@ -6,7 +6,7 @@ input("Drücke Enter, um mit der nächsten Schleife fortzufahren...")
 
 # range(2, 11, 2) erzeugt die geraden Zahlen von 2 bis 10
 for zahl in range(2, 11, 2):  # "zahl" ist ein Platzhalter, der bei jedem Durchlauf den nächsten Wert von range() annimmt.
-    print("Die Zahl ist:", zahl)
+    print("Die Zahl ist:", zahl) # Ausgabe der aktuellen Zahl
 
 # range(5) erzeugt die Zahlen 0 bis 4
 #     for zahl in range(5):  # "zahl" ist ein Platzhalter, der bei jedem Durchlauf einen neuen Wert annimmt.

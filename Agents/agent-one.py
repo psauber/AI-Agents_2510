@@ -4,12 +4,12 @@
 
 while iterations < max_iterations:
 
-    # 1️⃣ Prompt konstruieren: Agenten-Regeln + bisheriges Gedächtnis kombinieren.
+    # 1️⃣ Prompt erstellen: Agenten-Regeln + bisheriges Gedächtnis kombinieren.
     # 'agent_rules' enthält die fixen Verhaltensregeln (z. B. "Du bist ein hilfreicher Assistent"),
     # 'memory' enthält den bisherigen Gesprächsverlauf oder Kontext.
     prompt = agent_rules + memory
 
-    # 2️⃣ Antwort vom Sprachmodell (LLM) erzeugen
+    # 2️⃣ Antwort generieren / vom Sprachmodell (LLM) erzeugen
     print("Agent thinking...")  # Statusausgabe für den Benutzer
     response = generate_response(prompt)  # Anfrage an das LLM (Large Language Model)
     print(f"Agent response: {response}")  # Ausgabe der Antwort (z. B. welche Aktion es vorschlägt)
@@ -22,7 +22,7 @@ while iterations < max_iterations:
     # Variable zum Speichern des Aktionsergebnisses
     result = "Action executed"
 
-    # 4️⃣ Mögliche Aktionen prüfen und ausführen:
+    # 4️⃣ Aktion ausführen: Mögliche Aktionen prüfen und ausführen:
     # Das LLM entscheidet, welches "Tool" (Werkzeug/Funktion) der Agent verwenden soll.
 
     # Wenn das Modell "list_files" auswählt → alle Dateien im aktuellen Verzeichnis auflisten.
@@ -49,7 +49,7 @@ while iterations < max_iterations:
     # Ergebnis der ausgeführten Aktion anzeigen (zur Kontrolle oder Debugging)
     print(f"Action result: {result}")
 
-    # 5️⃣ Gedächtnis (memory) aktualisieren:
+    # 5️⃣ Ergebnis in Zeichenfolge konvertieren: Gedächtnis (memory) aktualisieren:
     # Der Agent merkt sich, was er gesagt hat (assistant)
     # und was als Ergebnis (user input) zurückkam.
     # So kann das Modell später darauf Bezug nehmen.
@@ -58,10 +58,10 @@ while iterations < max_iterations:
         {"role": "user", "content": json.dumps(result)}  # Ergebnis als JSON-Text speichern
     ])
 
-    # 6️⃣ Prüfen, ob das Modell das Ende signalisiert hat
+    # 6️⃣ Schleife fortsetzen: Prüfen, ob das Modell das Ende signalisiert hat
     # (z. B. Tool "terminate" wurde aufgerufen)
     if action["tool_name"] == "terminate":
         break
 
-    # 7️⃣ Zähler erhöhen, um Endlosschleifen zu vermeiden
+    # 7️⃣ Zähler erhöhen, um Endlosschleifen zu vermeiden 
     iterations += 1
