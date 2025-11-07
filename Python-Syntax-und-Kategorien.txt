@@ -1,0 +1,91 @@
+🧩 PYTHON-SYNTAX & KATEGORIEN — CHEATSHEET (Textversion)
+
+Dieses Cheatsheet fasst die wichtigsten Syntax-Kategorien in Python zusammen – mit Beispielen und kurzen Erklärungen.
+
+--------------------------------------------------------------------
+Kategorie: KEYWORD
+--------------------------------------------------------------------
+Beispiele: def, if, else, for, while, or, and, in, return, import, class, True, False, None
+Beschreibung: Reservierte Schlüsselwörter der Sprache. Haben eine feste Bedeutung und können NICHT als Variablennamen verwendet werden.
+
+--------------------------------------------------------------------
+Kategorie: FUNKTION / BUILT-IN
+--------------------------------------------------------------------
+Beispiele: print(), len(), range(), type(), int(), str(), float(), list(), dict()
+Beschreibung: Eingebaute Funktionen, mit denen du Standardaktionen ausführst (Ausgabe, Längen, Typen, Umwandlungen, Sammlungen erstellen).
+
+--------------------------------------------------------------------
+Kategorie: VARIABLE / IDENTIFIER
+--------------------------------------------------------------------
+Beispiele: menge, preis, daten, response_str
+Beschreibung: Namen, die du selbst definierst (Variablen, Funktionsnamen, Objektreferenzen). Der tatsächliche Datentyp kann beliebig sein.
+
+--------------------------------------------------------------------
+Kategorie: STRING LITERAL
+--------------------------------------------------------------------
+Beispiele: "Hallo", 'Test', "42"
+Beschreibung: Textzeichenketten, immer in Anführungszeichen. Typ: str
+
+--------------------------------------------------------------------
+Kategorie: NUMERIC LITERAL
+--------------------------------------------------------------------
+Beispiele: 5, 3.14, -42
+Beschreibung: Zahlenwerte. Typen: int, float, ggf. complex (z. B. 2+3j).
+
+--------------------------------------------------------------------
+Kategorie: KOMMENTAR
+--------------------------------------------------------------------
+Beispiele: # Das ist ein Kommentar
+Beschreibung: Kommentare werden vom Interpreter ignoriert. Nur zur Dokumentation im Code.
+
+--------------------------------------------------------------------
+Kategorie: KONSTANTE / KEYWORD
+--------------------------------------------------------------------
+Beispiele: True, False, None
+Beschreibung: Spezielle, fest definierte Werte für Wahrheitswerte oder „kein Wert“. Typen: bool, NoneType.
+
+--------------------------------------------------------------------
+Kategorie: METHOD / ATTRIBUTE
+--------------------------------------------------------------------
+Beispiele: "Hallo".upper(), liste.append(5), data.get("key")
+Beschreibung: Funktionen/Eigenschaften, die zu einem Objekt/Typ gehören (z. B. str, list, dict).
+
+--------------------------------------------------------------------
+Kategorie: COLLECTION LITERAL
+--------------------------------------------------------------------
+Beispiele: [1, 2, 3], (1, 2), {1, 2, 3}, {"a": 1}
+Beschreibung: Literale zur Erstellung von Sammlungen. Typen: list, tuple, set, dict.
+
+--------------------------------------------------------------------
+Kategorie: DATENTYP (Übersicht der grundlegenden Typen)
+--------------------------------------------------------------------
+str        -> Text (String)
+int        -> Ganze Zahl
+float      -> Kommazahl
+complex    -> Komplexe Zahl (z. B. 2+3j)
+bool       -> Wahrheitswert (True/False)
+list       -> Liste (veränderbar, geordnet)
+tuple      -> Tupel (unveränderlich, geordnet)
+set        -> Menge (keine Duplikate)
+frozenset  -> unveränderliche Menge
+dict       -> Dictionary (Schlüssel-Wert-Paare)
+range      -> Zahlenbereich (z. B. range(5) ergibt 0..4)
+bytes      -> Bytefolge (unveränderlich)
+bytearray  -> Bytefolge (veränderbar)
+memoryview -> spezieller Zugriff auf Binärdaten
+NoneType   -> Typ von None (fehlt/kein Wert)
+
+--------------------------------------------------------------------
+Beispiel (alles zusammen kurz demonstriert)
+--------------------------------------------------------------------
+# Kommentar
+menge = 3                    # Variable/Identifier (int)
+preis = 10.5                 # Variable/Identifier (float)
+text = "Total:"              # String literal (str)
+
+if menge > 0:                # Keyword
+    gesamt = menge * preis
+    print(text, gesamt)      # Built-in Funktion
+    print(text.upper())      # Methode eines str-Objekts
+    artikel = ["a", "b"]     # Collection literal (list)
+

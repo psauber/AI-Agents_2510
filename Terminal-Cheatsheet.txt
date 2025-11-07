@@ -1,0 +1,54 @@
+🧩 TERMINAL-CHEATSHEET (Windows / VS Code)
+
+------------------------------------------------------------
+🔹 NAVIGATION & ORDNER
+------------------------------------------------------------
+pwd                     # zeigt den aktuellen Pfad
+cd Ordnername           # in einen Unterordner wechseln
+cd ..                   # einen Ordner nach oben wechseln
+ls                      # zeigt Dateien und Ordner im aktuellen Verzeichnis
+dir                     # alternative Schreibweise für ls
+mkdir NeuerOrdner       # neuen Ordner erstellen
+rmdir Ordnername        # Ordner löschen (wenn leer)
+rmdir /s /q Ordnername  # Ordner mit Inhalt löschen (CMD-Stil)
+clear                   # Terminal leeren (PowerShell & Git Bash)
+cls                     # Terminal leeren (CMD)
+
+------------------------------------------------------------
+🔹 DATEIEN
+------------------------------------------------------------
+type datei.txt          # Inhalt einer Datei anzeigen
+del datei.txt           # Datei löschen
+copy quelle ziel        # Datei kopieren
+move quelle ziel        # Datei verschieben oder umbenennen
+echo "Text" > datei.txt # Text in eine neue Datei schreiben
+
+------------------------------------------------------------
+🔹 PYTHON
+------------------------------------------------------------
+python --version         # zeigt installierte Python-Version
+python datei.py          # führt ein Python-Skript aus
+python -m venv venv      # virtuelle Umgebung (venv) erstellen
+.\venv\Scripts\Activate.ps1  # venv aktivieren (PowerShell)
+venv\Scripts\activate        # venv aktivieren (CMD)
+deactivate               # venv beenden
+pip install paketname    # Python-Paket installieren
+pip list                 # installierte Pakete anzeigen
+
+------------------------------------------------------------
+🔹 GIT / GITHUB
+------------------------------------------------------------
+git status               # zeigt den aktuellen Stand (geänderte Dateien etc.)
+git add .                # alle Änderungen vormerken
+git commit -m "Text"     # Änderungen lokal speichern
+git push                 # Änderungen auf GitHub hochladen
+git pull                 # Änderungen von GitHub holen
+git fetch                # prüft, ob es neue Änderungen gibt (ohne sie zu übernehmen)
+git log --oneline        # Liste aller Commits in Kurzform
+
+------------------------------------------------------------
+🔹 SONSTIGES & SYSTEM
+------------------------------------------------------------
+code .                   # Öffnet den aktuellen Ordner in Visual Studio Code
+exit                     # Terminal schliessen
+whoami                   # zeigt den aktuellen Benutzer
