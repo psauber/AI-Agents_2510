@@ -1,0 +1,5 @@
+__pycache__/      # Ignoriert den Ordner, in dem Python automatisch kompilierte .pyc-Dateien speichert
+.venv/            # Ignoriert virtuelle Umgebungen mit Punkt (z. B. .venv im Projektordner)
+venv/             # Ignoriert ebenfalls virtuelle Umgebungen ohne Punkt (z. B. Ordner 'venv')
+*.pyc             # Ignoriert alle .pyc-Dateien (kompilierte Python-Bytecode-Dateien)
+.vscode/          # Ignoriert den VS-Code-Konfigurationsordner (Einstellungen, History, etc.)
