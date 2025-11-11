@@ -1,6 +1,6 @@
 früchte = ["Apfel", "Banane", "Kirsche"] # frucht nimmt die Werte von Früchte an — zum Beispiel, um über eine Liste, Zahlenreihe oder Zeichen in einem String zu iterieren.
 for frucht in früchte:  # "frucht" ist ein Platzhalter, der bei jedem Durchlauf einen neuen Wert annimmt.
-    print("Ich mag", frucht)
+    print("Ich mag", frucht) # Ausgabe der aktuellen Frucht
 
 input("Drücke Enter, um mit der nächsten Schleife fortzufahren...")
 
