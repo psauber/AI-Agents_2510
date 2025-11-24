@@ -4,9 +4,8 @@ import sys
 from litellm import completion
 from typing import List, Dict
 
-def extract_markdown_block(response: str, block_type: str = "json") -> str:
-    """Extract code block from response"""
-
+def extract_markdown_block(response: str, block_type: str = "json") -> str: # Extration des Code-Blocks aus der LLM-Antwort
+    
     if not '```' in response:
         return response
 
@@ -26,8 +25,8 @@ def generate_response(messages: List[Dict]) -> str:
     )
     return response.choices[0].message.content.strip()
 
-def parse_action(response: str) -> Dict:
-    """Parse the LLM response into a structured action dictionary."""
+def parse_action(response: str) -> Dict: # Parsen der LLM-Antwort in ein strukturiertes JSON Aktions-Dictionary
+
     try:
         response = extract_markdown_block(response, "action")
         response_json = json.loads(response)
@@ -38,12 +37,12 @@ def parse_action(response: str) -> Dict:
     except json.JSONDecodeError:
         return {"tool_name": "error", "args": {"message": "Invalid JSON response. You must respond with a JSON tool invocation."}}
 
-def list_files() -> List[str]:
-    """List files in the current directory."""
+def list_files() -> List[str]: # Files im aktuellen Verzeichnis auflisten
+
     return os.listdir(".")
 
-def read_file(file_name: str) -> str:
-    """Read a file's contents."""
+def read_file(file_name: str) -> str: # Lese den Inhalt einer Datei
+
     try:
         with open(file_name, "r") as file:
             return file.read()
@@ -52,7 +51,7 @@ def read_file(file_name: str) -> str:
     except Exception as e:
         return f"Error: {str(e)}"
 
-# Define system instructions (Agent Rules)
+# Definiere die Regeln für den Agenten (System-Prompt) inklusive der verfügbaren Tools und der Message Formatierung.
 agent_rules = [{
     "role": "system",
     "content": """
@@ -104,7 +103,7 @@ You must ALWAYS respond in this format:
 ```"""
 }]
 
-# Initialize agent parameters
+# Initiieren der Parameter für die Agent-Schleife
 iterations = 0
 max_iterations = 10
 
