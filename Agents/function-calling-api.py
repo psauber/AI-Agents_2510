@@ -48,7 +48,7 @@ tools = [ # Eckige Klammer, da es eine Liste von Tools ist und somit ein Array
 ]
 
 # Our rules are simplified since we don't have to worry about getting a specific output format
-agent_rules = [{
+agent_rules = [{ # Definiere die Regeln für den Agenten (System-Prompt)
     "role": "system",
     "content": """
 You are an AI agent that can perform tasks by using available tools. 
@@ -57,11 +57,11 @@ If a user asks about files, documents, or content, first list the files before r
 """
 }]
 
-user_task = input("What would you like me to do? ")
+user_task = input("What would you like me to do? ") # User-Eingabe für die Aufgabe des Agenten
 
-memory = [{"role": "user", "content": user_task}]
+memory = [{"role": "user", "content": user_task}] # Speichere die User-Aufgabe im Memory
 
-messages = agent_rules + memory
+messages = agent_rules + memory # Kombiniere die Agenten-Regeln mit dem Memory zu den Messages
 
 # Hier ist die Liste der Tools, die du aufrufen darfst. Wähle eines davon und gib einen Tool-Call zurück.
 response = completion( # Anfrage an das LLM mit Tools
@@ -72,10 +72,10 @@ response = completion( # Anfrage an das LLM mit Tools
 )
 
 # Extract the tool call from the response, note we don't have to parse now!
-tool = response.choices[0].message.tool_calls[0]
-tool_name = tool.function.name
-tool_args = json.loads(tool.function.arguments)
-result = tool_functions[tool_name](**tool_args)
+tool = response.choices[0].message.tool_calls[0] # Extrahiere den Tool-Call aus der LLM-Antwort
+tool_name = tool.function.name # Name des ausgewählten Tools
+tool_args = json.loads(tool.function.arguments) # Argumente des Tools als Dictionary
+result = tool_functions[tool_name](**tool_args) # Rufe die entsprechende Funktion mit den Argumenten auf
 
 print(f"Tool Name: {tool_name}")
 print(f"Tool Arguments: {tool_args}")
