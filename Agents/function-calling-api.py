@@ -4,11 +4,12 @@ from typing import List
 
 from litellm import completion
 
-def list_files() -> List[str]:
+# Definition der Funktionen, die als Tools verwendet werden können
+def list_files() -> List[str]: # Funktion 1 zum Auflisten von Dateien
     """List files in the current directory."""
     return os.listdir(".")
 
-def read_file(file_name: str) -> str:
+def read_file(file_name: str) -> str: # Funktion 2 zum Lesen von Dateien
     """Read a file's contents."""
     try:
         with open(file_name, "r") as file:
@@ -18,12 +19,11 @@ def read_file(file_name: str) -> str:
     except Exception as e:
         return f"Error: {str(e)}"
 
-
 tool_functions = { # Mapping Tool-Namen zu Funktionen für späteren Aufruf
     "list_files": list_files,
     "read_file": read_file
 }
-
+# Definition der verfügbaren Tools für den Agenten
 tools = [ # Eckige Klammer, da es eine Liste von Tools ist und somit ein Array
     {
         "type": "function", # Erste Tool ist eine Funktion
@@ -38,7 +38,7 @@ tools = [ # Eckige Klammer, da es eine Liste von Tools ist und somit ein Array
         "function": {
             "name": "read_file",
             "description": "Reads the content of a specified file in the directory.",
-            "parameters": {
+            "parameters": { # Beschreibung der Parameter der Funktion
                 "type": "object",
                 "properties": {"file_name": {"type": "string"}}, # Ein Parameter "file_name" vom Typ String
                 "required": ["file_name"]
