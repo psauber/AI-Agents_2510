@@ -81,7 +81,8 @@ class ActionRegistry:
     def register(self, action: Action):
         self.actions[action.name] = action
 
-    def get_action(self, name: str) -> [Action, None]:
+    def get_action(self, name: str) -> Action | None:
+        """Get a registered action by name"""
         return self.actions.get(name, None)
 
     def get_actions(self) -> List[Action]:
@@ -184,7 +185,7 @@ class AgentFunctionCallingActionLanguage(AgentLanguage):
 
         return mapped_items
 
-    def format_actions(self, actions: List[Action]) -> [List,List]:
+    def format_actions(self, actions: list[Action]) -> tuple[list, list]:
         """Generate response from language model"""
 
         tools = [
